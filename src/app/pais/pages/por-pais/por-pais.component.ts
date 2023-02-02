@@ -11,19 +11,25 @@ import { Observer } from 'rxjs';
 export class PorPaisComponent {
   private _Error : boolean = false;
   busqueda : string = "";
+  entriesCountries : any = null ;
   constructor(private servicio : PaisService){}
 
   buscar(){
     this._Error = false;
     this.servicio.buscarPais(this.busqueda)
       .subscribe({
-        next: (v) => console.log(v),
+        next: (v) => {
+          this.entriesCountries = v;
+          console.log(this.entriesCountries)
+        },
         error : ({error}) => {
           console.log(this._Error)
           this._Error = true
+          this.entriesCountries  = null;
           console.log(this._Error)
         },
       })
+    
   }
 
   ErrorBusqueda() : boolean{
