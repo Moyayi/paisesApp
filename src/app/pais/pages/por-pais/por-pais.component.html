@@ -32,13 +32,11 @@
     </form>
 </div>
 
-<hr>
-
-<div class="">
-    No se encontró nada el término [valorBuscado]  
+<div *ngIf="ErrorBusqueda()" class="bg-red-500 border rounded-md p-2 my-2">
+    <span class="text-black">No se encontró ningún país con el nombre de <span class="text-xl font-bold underline"> {{this.busqueda}} </span></span>
 </div>
 
-<div class="">
+<div class="my-2">
     <div class="grid grid-cols-5 text-center">
         <h3 class="text-xl font-semibold"> # </h3>
         <h3 class="text-xl font-semibold"> Bandera </h3>
