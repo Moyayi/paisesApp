@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {HttpParams, HttpClient} from '@angular/common/http'
+import { PaisService } from '../../services/pais.service';
 
 @Component({
   selector: 'app-por-pais',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class PorPaisComponent {
 
+  busqueda : string = "";
+  constructor(private servicio : PaisService){}
+
+  buscar(){
+    this.servicio.buscarPais(this.busqueda).subscribe((resp) => console.log(resp))
+  }
 }
