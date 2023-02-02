@@ -9,10 +9,13 @@ import { Observer } from 'rxjs';
   styleUrls: ['./por-pais.component.sass']
 })
 export class PorPaisComponent {
+  
+  constructor(private servicio : PaisService){}
+
   private _Error : boolean = false;
   busqueda : string = "";
   entriesCountries : any = null ;
-  constructor(private servicio : PaisService){}
+  
 
   buscar(){
     this._Error = false;
