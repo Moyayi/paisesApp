@@ -24,7 +24,7 @@ const routes : Routes = [
         // pathMatch: 'full'
     },
     {
-        path: 'pais/:id',
+        path: 'ver-pais/:id',
         component: VerPaisComponent
     },
     {

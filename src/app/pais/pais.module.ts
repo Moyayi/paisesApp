@@ -26,6 +26,7 @@ import { AppRoutingModule } from '../app-routing.module';
     CommonModule,
     FormsModule,
     AppRoutingModule,
+    
   ]
 })
 export class PaisModule { }
