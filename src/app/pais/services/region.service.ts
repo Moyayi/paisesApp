@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import {Observable} from 'rxjs'
+import { RegionInterfaz } from '../interfaces/region';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class RegionService {
   
   constructor( private http: HttpClient ) { }
   
-  buscarRegion(busqueda : string) : Observable<any> {
+  buscarRegion(busqueda : string) : Observable<RegionInterfaz[]> {
     const url = `${this.apiUrl}/region/${busqueda}`
-    return this.http.get(url)
+    return this.http.get<RegionInterfaz[]>(url)
   }
 }

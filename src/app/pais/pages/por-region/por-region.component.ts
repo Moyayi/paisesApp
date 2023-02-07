@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { RegionInterfaz, SearchedRegions } from '../../interfaces/region';
-import { PaisService } from '../../services/pais.service';
 import { RegionService } from '../../services/region.service';
-import {Observable} from 'rxjs'
+
 
 @Component({
   selector: 'app-por-region',
@@ -10,11 +8,17 @@ import {Observable} from 'rxjs'
   styleUrls: ['./por-region.component.sass']
 })
 export class PorRegionComponent {
+  
+  constructor(
+    private servicio : RegionService,
+    
+    ){}
 
-  constructor(private servicio : RegionService){}
   private _Error : boolean = false;
   busqueda : string = "";
   entriesRegions : any = null;
+
+
 
   buscarRegion(){
     this._Error = false;
@@ -22,7 +26,7 @@ export class PorRegionComponent {
       .subscribe({
         next: (v) => {
           this.entriesRegions = v;
-          console.log(this.entriesRegions)
+          
         },
         error : ({error}) => {
           console.log(this._Error)
